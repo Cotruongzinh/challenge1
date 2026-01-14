@@ -19,7 +19,6 @@ export const homeStyles = StyleSheet.create({
     marginBottom: 18,
   },
 
-  // vùng list ngang
   list: {
     width: "100%",
     height: 210,
@@ -30,7 +29,6 @@ export const homeStyles = StyleSheet.create({
     alignItems: "center",
   },
 
-  // khung vuông: viền + nền như hình
   card: {
     width: 170,
     height: 170,
