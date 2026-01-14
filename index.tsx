@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, ScrollView, Text, TextInput, View, Image } from "react-native";
+import { SafeAreaView, Text, TextInput, View, Image, FlatList } from "react-native";
 
 import { homeStyles } from "../../styles/Home";
 import { languages } from "../../constants/languages";
@@ -10,18 +10,19 @@ export default function HomeScreen() {
       <View style={homeStyles.content}>
         <Text style={homeStyles.title}>Programming Languages</Text>
 
-        <ScrollView
+        <FlatList
+          data={languages}
+          keyExtractor={(item) => item.key}
           horizontal
-          showsHorizontalScrollIndicator={false}
-          style={homeStyles.scrollWrap}
-          contentContainerStyle={homeStyles.scrollContent}
-        >
-          {languages.map((item) => (
-            <View key={item.key} style={homeStyles.card}>
+          showsHorizontalScrollIndicator
+          style={homeStyles.list}
+          contentContainerStyle={homeStyles.listContent}
+          renderItem={({ item }) => (
+            <View style={homeStyles.card}>
               <Image source={item.img} style={homeStyles.image} />
             </View>
-          ))}
-        </ScrollView>
+          )}
+        />
 
         <TextInput
           style={homeStyles.input}

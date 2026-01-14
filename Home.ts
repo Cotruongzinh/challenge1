@@ -6,7 +6,6 @@ export const homeStyles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
   },
 
-  // khối trắng nằm giữa giống hình minh hoạ
   content: {
     flex: 1,
     alignItems: "center",
@@ -20,25 +19,28 @@ export const homeStyles = StyleSheet.create({
     marginBottom: 18,
   },
 
-  // vùng scroll ngang
-  scrollWrap: {
-    height: 220,
+  // vùng list ngang
+  list: {
+    width: "100%",
+    height: 210,
   },
-  scrollContent: {
+
+  listContent: {
     paddingHorizontal: 24,
     alignItems: "center",
   },
 
-  // mỗi ô ảnh
+  // khung vuông: viền + nền như hình
   card: {
     width: 170,
     height: 170,
-    backgroundColor: "#D7A35B", // màu nền vàng nâu như minh hoạ
+    backgroundColor: "#D8A45B",
     borderWidth: 2,
-    borderColor: "#222222",
+    borderColor: "#1F1F1F",
     marginRight: 18,
     alignItems: "center",
     justifyContent: "center",
+    overflow: "hidden",
   },
 
   image: {
