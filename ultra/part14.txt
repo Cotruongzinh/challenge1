@@ -1,0 +1,116 @@
+ech tech-1" data-label="Python" aria-label="Python"><span>Py</span></button>
+        <button class="tech tech-2" data-label="React" aria-label="React"><span>R</span></button>
+        <button class="tech tech-3" data-label="C# / .NET" aria-label="C sharp and dot NET"><span>C#</span></button>
+        <button class="tech tech-4" data-label="Java" aria-label="Java"><span>Jv</span></button>
+        <button class="tech tech-5" data-label="Firebase" aria-label="Firebase"><span>Fb</span></button>
+        <button class="tech tech-6" data-label="Docker" aria-label="Docker"><span>Dk</span></button>
+        <button class="tech tech-7" data-label="Unity" aria-label="Unity"><span>U</span></button>
+        <button class="tech tech-8" data-label="Git / GitHub" aria-label="Git and GitHub"><span>Git</span></button>
+        <div class="constellation-core"><span>BUILD</span><b>↓</b><span>REFINE</span></div>
+        <div class="tech-tooltip" aria-hidden="true">Python</div>
+      </div>
+    </section>
+
+    <section id="about" class="about scene" data-theme="bone">
+      <div class="section-kicker">About</div>
+      <div class="about-grid">
+        <h2>I like software at the point where <em>engineering becomes experience.</em></h2>
+        <div><p>Software Engineering at Van Lang University, 2023—2027.</p><p>Hands-on across mobile, applied AI, C#/.NET desktop systems and interactive products — with an emphasis on learning quickly and shipping things that can actually be used.</p></div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact scene" data-theme="dark">
+      <div class="contact-orbit" aria-hidden="true"></div>
+      <div class="contact-inner">
+        <div class="section-kicker">Contact · Open to opportunities</div>
+        <h2>Have a problem<br><em>worth building?</em></h2>
+        <a class="contact-cta magnetic" href="mailto:cotruongvinh190405@gmail.com?subject=Portfolio%20Inquiry%20%E2%80%94%20Co%20Truong%20Vinh&body=Hi%20Vinh%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect%20about%20an%20opportunity%20or%20project.%0A%0ABest%20regards%2C"><span>Start a conversation</span><svg viewBox="0 0 24 24"><path d="m7 17 10-10M8 7h9v9"/></svg></a>
+        <div class="contact-meta"><a href="mailto:cotruongvinh190405@gmail.com?subject=Portfolio%20Inquiry%20%E2%80%94%20Co%20Truong%20Vinh&body=Hi%20Vinh%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect%20about%20an%20opportunity%20or%20project.%0A%0ABest%20regards%2C">cotruongvinh190405@gmail.com</a><a href="tel:+84929133161">+84 929 133 161</a><a href="https://github.com/Cotruongzinh" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+      </div>
+      <footer><span>© 2026 Cổ Trường Vinh</span><span>Designed & engineered with intent.</span></footer>
+    </section>
+  </main>
+
+  <div class="case-cursor" aria-hidden="true"><span>VIEW</span></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script type="module">
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js";
+
+const gsap = window.gsap;
+const ScrollTrigger = window.ScrollTrigger;
+gsap.registerPlugin(ScrollTrigger);
+const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const finePointer = window.matchMedia('(pointer:fine)').matches;
+
+// Preloader
+const loader = document.querySelector('#preloader');
+const rail = document.querySelector('.preloader__rail span');
+const count = document.querySelector('.preloader__count');
+let p = 0;
+const timer = setInterval(()=>{ p = Math.min(100,p + Math.ceil(Math.random()*14)); rail.style.width = p+'%'; count.textContent = String(p).padStart(2,'0'); if(p===100){ clearInterval(timer); window.dispatchEvent(new Event('portfolio-ready')); } }, 45);
+
+window.addEventListener('portfolio-ready', ()=>{
+  const tl=gsap.timeline({defaults:{ease:'power3.inOut'}});
+  tl.to('.preloader__mark',{y:-18,opacity:0,duration:.42})
+    .to('#preloader',{clipPath:'inset(0 0 100% 0)',duration:.85},'<.08')
+    .set('#preloader',{display:'none'})
+    .to('.hero__title .line>span',{y:0,duration:1.05,stagger:.08,ease:'power4.out'},'-=.55')
+    .fromTo('.reveal-up',{y:20,opacity:0},{y:0,opacity:1,duration:.8},'-=.6')
+    .fromTo('.reveal-line',{opacity:0,y:10},{opacity:1,y:0,duration:.6},'-=.75')
+    .fromTo('.hero__portrait-wrap',{opacity:0,y:40,rotateY:8},{opacity:1,y:0,rotateY:0,duration:1.1},'-=.85')
+    .to('.portrait-shine',{x:'160%',duration:1.2,ease:'power2.inOut'},'-=.65');
+});
+
+// Smooth scroll
+let lenis;
+if(!reduced && window.Lenis){
+  lenis = new window.Lenis({duration:1.05,smoothWheel:true,wheelMultiplier:.88,touchMultiplier:1.1});
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add((time)=>lenis.raf(time*1000));
+  gsap.ticker.lagSmoothing(0);
+}
+
+// Progress + nav theme
+const progress = document.querySelector('.scroll-progress span');
+ScrollTrigger.create({start:0,end:'max',onUpdate:self=>gsap.set(progress,{width:(self.progress*100)+'%'})});
+
+// Hero cinematic parallax
+if(!reduced){
+  gsap.to('.hero__portrait-wrap',{yPercent:12,rotateY:-5,rotateX:2,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:1.1}});
+  gsap.to('.hero__copy',{yPercent:-8,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:1.1}});
+  gsap.to('.orb--orange',{xPercent:-18,yPercent:22,scale:1.25,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:1.5}});
+}
+
+function pinScene(trigger, build){
+  const tl=gsap.timeline({scrollTrigger:{trigger,start:'top top',end:'bottom bottom',scrub:1.05,anticipatePin:1}});
+  build(tl);
+  return tl;
+}
+
+if(!reduced){
+  pinScene('.project--explore',tl=>{
+    tl.fromTo('.phone',{scale:.72,rotateY:-18,rotateX:7,y:80},{scale:1,rotateY:0,rotateX:0,y:0,duration:1.25,ease:'power2.out'},0)
+      .fromTo('.explore-copy',{opacity:0,x:-45},{opacity:1,x:0,duration:.6},.18)
+      .fromTo('.fc-search',{x:120,y:70,z:-120,opacity:0},{x:0,y:0,z:0,opacity:1,duration:.75},.8)
+      .fromTo('.fc-map',{x:-110,y:70,z:-160,opacity:0},{x:0,y:0,z:0,opacity:1,duration:.75},.92)
+      .fromTo('.fc-save',{x:130,y:-80,z:-150,opacity:0},{x:0,y:0,z:0,opacity:1,duration:.75},1.04)
+      .fromTo('.fc-sec',{x:-140,y:-80,z:-180,opacity:0},{x:0,y:0,z:0,opacity:1,duration:.75},1.14)
+      .to('.ring-one',{rotateZ:120,scale:1.05,duration:1.5,ease:'none'},.55)
+      .to('.ring-two',{rotateZ:-80,scale:.92,duration:1.5,ease:'none'},.55)
+      .to('.phone',{scale:1.12,rotateY:15,rotateX:-4,x:-30,duration:.7,ease:'power2.inOut'},1.72)
+      .to('.float-card',{x:(i)=>[-300,330,-260,300][i],y:(i)=>[-110,-80,140,110][i],rotate:(i)=>[-8,7,5,-6][i],scale:.86,opacity:.88,duration:.75,ease:'power2.inOut'},1.75)
+      .to('.explore-copy',{opacity:.25,x:-28,duration:.5},1.84)
+      .to('.phone-world',{scale:.82,xPercent:13,rotateZ:-4,duration:.75,ease:'power2.inOut'},2.35)
+      .to('.float-card',{opacity:0,duration:.35},2.52)
+      .to('.phone',{rotateY:-28,scale:.62,y:-30,duration:.6},2.55);
+  });
+
+  pinScene('.project--ai',tl=>{
+    tl.fromTo('.ai-copy',{opacity:0,x:-45},{opacity:1,x:0,duration:.55},.08)
+      .fromTo('.digit-stage',{scale:.75,rotateY:17,y:50,opacity:0},{scale:1,rotateY:0,y:0,opacity:1,duration:.9,ease:'power2.out'},.1)
+      .to('.digit-svg path',{strokeDashoffset:0,duration:.75,ease:'none'},.3)
+      .fromTo('.input-card',{x:-80,y:-40,opacity:0},{x:0,y:0,opacity:1,duration:.65},.75)
+      .fromTo('.model-core',{scale:.4,opacity:0},{scale:1,
