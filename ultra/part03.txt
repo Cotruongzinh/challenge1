@@ -1,0 +1,50 @@
+ne}.hero__title .line>span{transform:none}.portrait-shine{display:none}.project{height:auto;min-height:100svh}.sticky-stage{position:relative;min-height:100svh}.float-card,.phone,.ai-card,.desktop-panel,.miso,.sprites{transform:none!important}.digit-svg path,.curve{stroke-dashoffset:0!important}}
+
+.phone__screen img{width:100%;height:100%;object-fit:cover;display:block}
+
+</style>
+</head>
+<body>
+  <div id="preloader" aria-hidden="true">
+    <div class="preloader__mark">CTV</div>
+    <div class="preloader__rail"><span></span></div>
+    <div class="preloader__count">00</div>
+  </div>
+
+  <canvas id="webgl" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <header class="site-nav" aria-label="Primary navigation">
+    <a class="brand magnetic" href="#top" aria-label="Back to top"><span>CTV</span><i></i></a>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-github icon-link" href="https://github.com/Cotruongzinh" target="_blank" rel="noreferrer" aria-label="GitHub profile">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .9a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.17c-3.13.68-3.79-1.33-3.79-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.5-.28-5.13-1.25-5.13-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.08 1.15A10.7 10.7 0 0 1 12 6.15c.96 0 1.91.13 2.8.38 2.14-1.45 3.08-1.15 3.08-1.15.62 1.55.23 2.7.12 2.98.72.79 1.15 1.79 1.15 3.02 0 4.32-2.64 5.27-5.15 5.55.4.35.76 1.03.76 2.08v3.18c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .9Z"/></svg>
+    </a>
+  </header>
+
+  <main id="top">
+    <section class="hero scene" data-theme="light">
+      <div class="hero__orb orb orb--orange"></div>
+      <div class="hero__copy">
+        <div class="eyebrow reveal-line"><span>Software Engineering · Vietnam</span></div>
+        <h1 class="hero__title" aria-label="Software, systems and interfaces — built with intent.">
+          <span class="line"><span>Software, systems</span></span>
+          <span class="line"><span>and interfaces —</span></span>
+          <span class="line serif"><span>built with intent.</span></span>
+        </h1>
+        <div class="hero__meta reveal-up">
+          <p>I’m Cổ Trường Vinh. I build mobile products, applied AI, desktop software and interactive systems.</p>
+          <div class="hero__actions">
+            <a class="text-cta magnetic" href="#work">Explore selected work <svg viewBox="0 0 24 24"><path d="m7 17 10-10M8 7h9v9"/></svg></a>
+            <a class="text-cta muted" href="mailto:cotruongvinh190405@gmail.com?subject=Portfolio%20Inquiry%20%E2%80%94%20Co%20Truong%20Vinh&body=Hi%20Vinh%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect%20about%20an%20opportunity%20or%20project.%0A%0ABest%20regards%2C">Email me</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero__portrait-wrap" data-parallax="0.13">
+        <div class="portrait-frame">
+          <img src="data:image/webp;base64,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
